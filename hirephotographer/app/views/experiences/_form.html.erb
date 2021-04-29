@@ -1,0 +1,74 @@
+<div class="container full-width">
+  <article id="post-2869" class="sixteen columns post-2869 page type-page status-publish hentry">
+    <div class="submit-page">
+      <%= form_for(experience) do |f| %>
+          <% if experience.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+
+                <ul>
+                  <% experience.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+
+
+          <fieldset class="form fieldset">
+            <%= f.label :customername, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :customername, :class => 'form-control bg-white form-control-has-validation', :required => true %>
+            </div>
+            <%= @experience.errors[:customername].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :startDate, :class => 'form-label' %>
+            <div class="input-group date" id="startDate">
+              <%= text_field :startDate, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+          </fieldset>
+
+
+          <fieldset class="form fieldset">
+            <%= f.label :endDate, :class => 'form-label' %>
+            <div class="input-group date" id="endDate">
+
+              <%= text_field :endDate, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :organization, :class => 'form-label' %>
+            <%= text_area :organization, nil, :class => 'form-control bg-white form-control-has-validation' %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :role, :class => 'form-label' %>
+            <%= text_area :role, nil, :class => 'form-control bg-white form-control-has-validation' %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :description, :class => 'form-label' %>
+            <%= text_area :description, nil, :class => 'form-control bg-white form-control-has-validation' %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :remark, :class => 'form-label' %>
+            <%= text_area :remark, nil, :class => 'form-control bg-white form-control-has-validation' %>
+          </fieldset>
+
+          <div class="actions">
+            <%= f.submit :class => "btn btn-primary" %>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cancel</button>
+          </div>
+
+
+      <% end %>
+    </div>
+  </article>
+</div>

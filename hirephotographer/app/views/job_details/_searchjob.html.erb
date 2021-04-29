@@ -1,0 +1,29 @@
+<div id="filterrific_results" class="air-card">
+
+  <h2>
+    <%= page_entries_info @job_details.to_a, :model => 'job_details' %>
+  </h2>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Job Title</th>
+      <th>Location</th>
+      <th>Available Till</th>
+      <th>Created At</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @job_details.each do |job_detail| %>
+        <tr>
+          <td><%= job_detail.jobTitle %></td>
+          <td><%= job_detail.location %></td>
+          <td><%= job_detail.decorated_validTill %></td>
+          <td><%= job_detail.decorated_created_at %></td>
+          <td><%= link_to 'Apply', job_detail_path(job_detail.id) , :class => "button"%></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

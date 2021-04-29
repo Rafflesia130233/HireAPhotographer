@@ -1,0 +1,195 @@
+<div id="titlebar" class="single submit-page profile-title">
+  <div class="container">
+
+    <div class="sixteen columns">
+      <h1><i class="fa fa-user" style="color:#37a000;"></i> My Profile</h1>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<% if !@photographer_user.personalinformation.nil? %>
+    <!-- Profile summary and Picture-->
+
+    <div class="container">
+
+      <div class="air-card ">
+        <div class="row">
+          <div class="pull-left up-cursor-pointer col-md-2">
+            <%if @photographer_user.personalinformation.profilepicture.nil?%>
+                <a data-toggle="modal" href="#upload-photo-dialog"><span class="avatar avatar-lg glyphicon air-icon-avatar "></span></a>
+
+
+            <%else%>
+                <%= image_tag @photographer_user.personalinformation.profilepicture.avatar.url, :class=>"image img-responsive img-circle"%>
+            <%end%>
+          </div>
+
+
+
+
+          <div id="upload-photo-dialog" role="dialog" class="modal fade apply-popup" aria-haspopup="true">
+            <div class="small-dialog zoom-anim-dialog">
+              <div class="small-dialog-headline">
+                <h3 class="modal-title">Edit Potrait</h3>
+              </div>
+              <div class="small-dialog-content woo-reg-box"><!-- ngIf: vm.error -->
+
+
+                <%= form_for(Profilepicture.new, html: { multipart: true}) do |f|  %>
+                    <div class="fallback">
+                      <%= f.file_field :avatar%><br>
+                      <div class="actions">
+                        <%= f.submit %>
+                      </div>
+                    </div>
+                <% end %>
+
+
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <h2> <%= @photographer_user.personalinformation.firstname %>  <%= @photographer_user.personalinformation.middlename %> <%= @photographer_user.personalinformation.lastname %></h2>
+            <span class="glyphicon glyphicon-md air-icon-location m-0-left-right"></span>
+            <p><%= @photographer_user.personalinformation.address %>  </p>
+            <p><%= current_user.personalinformation.city %>
+              , <%= @photographer_user.personalinformation.state %>  <%= @photographer_user.personalinformation.country %> </p>
+            <p><i class="fa fa-mobile-phone"></i><%= @photographer_user.personalinformation.mobile %>  </p>
+            <p><%= @photographer_user.personalinformation.phone %>  </p>
+            <p><%= @photographer_user.personalinformation.secondaryEmail %>  </p>
+          </div>
+
+        </div>
+
+        <hr class="m-sm-top">
+
+        <div class="row">
+          <div class="col-md-12">
+            <h4> Overview </h4>
+            <p><%= @photographer_user.personalinformation.summary %>  </p>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+
+<% elsif @photographer_user.personalinformation.nil? %>
+    <div class="container">
+
+      <div class="air-card ng-scope">
+
+        <p class="eight columnd">Once your profile is approved, you'll be able to submit project proposals for the
+          jobs you're interested in.</p>
+        <div class="fourcolumns">
+          <a class="btn btn-primary" href="/personalinformations/new">Continue To Create Profile</a>
+        </div>
+
+      </div>
+    </div>
+
+<% end %>
+
+
+
+
+<% if @photographer_user && @photographer_user.role == '0' && !@photographer_user.profile.nil? %>
+
+
+
+    <!-- Experiences-->
+    <div class="container">
+      <div class="air-card">
+        <div class="small-dialog-headline">
+          <h3 style="color:#1ABC9C"> Experiences </h3>
+        </div>
+        <% if !@photographer_user.profile.experiences.nil? %>
+        <div class="row clearfix">
+
+              <%= render 'experiences/list', experiences: @photographer_user.profile.experiences %>
+
+        </div>
+        <% end %>
+        <% if @photographer_user.id == @current_user.id %>
+            <div class="row clearfix">
+              <%= link_to 'Add', new_experience_path, :class => 'btn btn-primary button add_profile_button' %>
+            </div>
+        <% end %>
+      </div>
+
+      <!-- Educations-->
+      <div class="air-card">
+        <div class="small-dialog-headline">
+          <h2 style="color:#1ABC9C"> Educations </h2>
+        </div>
+
+          <% if !@photographer_user.profile.educations.nil? %>
+            <div class="row clearfix">
+              <%= render 'educations/list', educations: @photographer_user.profile.educations %>
+            </div>
+          <% end %>
+
+        <% if @photographer_user.id == @current_user.id %>
+            <div class="row clearfix">
+              <%= link_to 'Add', new_education_path, :class => 'btn btn-primary button add_profile_button' %>
+            </div>
+        <% end %>
+      </div>
+
+      <!-- Certification-->
+      <div class="air-card">
+        <div class="small-dialog-headline">
+          <h2 style="color:#1ABC9C"> Certification </h2></div>
+        <div class="row clearfix">
+          <% if !@photographer_user.profile.educations.nil? %>
+              <%= render 'certifications/list', certifications: @photographer_user.profile.certifications %>
+          <% end %>
+        </div>
+        <% if @photographer_user.id == @current_user.id %>
+            <div class="row clearfix">
+              <%= link_to 'Add', new_certification_path, :class => 'btn btn-primary button add_profile_button' %>
+            </div>
+        <% end %>
+      </div>
+
+      <!-- Training-->
+      <div class="air-card">
+        <div class="small-dialog-headline">
+          <h2 style="color:#1ABC9C">Training </h2></div>
+        <div class="row clearfix">
+          <% if !@photographer_user.profile.educations.nil? %>
+              <%= render 'trainings/list', trainings: @photographer_user.profile.trainings %>
+          <% end %>
+        </div>
+        <% if @photographer_user.id == @current_user.id %>
+            <div class="row clearfix">
+              <%= link_to 'Add', new_training_path, :class => 'btn btn-primary button add_profile_button'  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+<% elsif !@photographer_user.nil? && @photographer_user.role == '0' && @photographer_user.profile.nil?  %>  asdas<%=@photographer_user.profile.nil?  %>
+    <div class="container">
+      <div class="air-card">
+        <%= render 'profiles/form', profile: Profile.new %>
+      </div>
+    </div>
+
+<% end %>
+
+<div class="container">
+  <div class="air-card" style="box-shadow: none;padding:10px 0px;background-color: transparent;">
+    <%= link_to 'Edit', edit_photographer_user_path(@photographer_user), :class => "button" %>
+    <%= link_to 'Back', photographer_users_path, :class => "button" %>
+  </div>
+</div>

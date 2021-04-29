@@ -1,0 +1,167 @@
+
+.block {
+  border: 2px solid #F1F2F3;
+  padding: 31px 10px 40px 36px;
+}
+.block__mod{
+  background-color: #f1f2f3;
+}
+.btn__mod1 {
+  width: 94%;
+  height: auto;
+  padding: 0 10px;
+  display: inline-block;
+  line-height: 75px;
+  background: #3b3d3f;
+  text-align: center;
+  position: relative;
+  /* padding: 0 10px; */
+  padding: 0 43px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.nav-color{
+  //background-color: #1ABC9C;
+  background-color: #202020;
+
+}
+.add_profile_button{
+  background-color: #0ab4c3;
+  margin-top: 5px;
+  margin-left: 15px;
+  width: 250px;
+}
+/*================    Marked list     =================*/
+.marked-list {
+  list-style: none;
+  display: inline-block;
+  font-family: Raleway, sans-serif;
+}
+.marked-list li {
+  position: relative;
+  padding-left: 37px;
+}
+.marked-list li a {
+  font-size: 20px;
+  line-height: 39px;
+  display: inline-block;
+  color: #1ABC9C;
+}
+.marked-list li a:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font: 400 24px/39px 'Material-design';
+  -moz-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+  color: #1ABC9C;
+}
+.marked-list li a:hover {
+  color: #3b3d3f;
+}
+.marked-list li a:hover:before {
+  left: 2px;
+}
+@media (max-width: 767px) {
+  .marked-list li {
+    text-align: left;
+  }
+}
+.marked-list__mod1 li a:hover {
+  color: #fff;
+}
+.home_content {
+  padding:40px 0px;
+}
+
+.round-box {
+   margin: 0 0 12px 0;
+  border-radius: 100%;
+  border: 3px solid #ededed;
+  text-align: center;
+  width: 280px;
+  height: 280px;
+  line-height: 260px;
+  display: inline-block;
+  background-color: #1ABC9C;
+  vertical-align: middle;
+  top: 100px;
+  font-size: 40px;
+  font-family: cursive;
+  color: white;
+  font-weight: bold;
+}
+.round-box a {
+  color: white;
+}
+/**
+*/
+/* thumbs
+========================================================*/
+.thumb-pad1 {
+  margin: 10px;
+  padding: 26px 26px;
+  background: #ffffff;
+  text-align: center;
+  border: 1px solid #ebebeb;
+}
+.thumb-pad1 .thumbnail {
+  position: relative;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  background: none;
+}
+.thumb-pad1 figure {
+  margin: 0 0 26px 0;
+  border-radius: 100%;
+  border: 3px solid #ededed;
+  text-align: center;
+  width: 114px;
+  height: 114px;
+  line-height: 104px;
+  display: inline-block;
+}
+.thumb-pad1 .thumbnail .caption {
+  padding: 0;
+}
+.thumb-pad1 .thumbnail .caption p {
+  margin: 23px 0 0 0;
+  font: 300 14px/24px 'Roboto Condensed';
+  padding-top: 25px;
+  position: relative;
+}
+.thumb-pad1 .thumbnail .caption p:after {
+  width: 100%;
+  height: 1px;
+  top: 0;
+  left: 0;
+  background: #ddd;
+  position: absolute;
+  content: '';
+}
+.thumb-pad1 .thumbnail .caption a {
+  font: 300 24px 'Roboto Condensed';
+  color: #191919;
+  text-transform: uppercase;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.thumb-pad1 .thumbnail .caption a:hover {
+  color: #e67a32;
+}
+.add_profile_button{
+  background-color: #0ab4c3;
+  margin-top: 5px;
+  margin-left: 15px;
+  width: 250px;
+}

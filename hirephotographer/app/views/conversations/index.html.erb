@@ -1,0 +1,46 @@
+<div id="titlebar" class="single submit-page conversaton-title">
+  <div class="container">
+    <div class="sixteen columns">
+
+<h1><i class="fa fa-comment" style="color:#1ABC9C;"> </i> Conversations</h1>
+    </div>
+
+  </div>
+</div>
+<div class="container">
+  <% if @conversations.any? %>
+      <ul class="layout-comment-list">
+        <% @conversations.each do |conversation| %>
+            <li class="comment">
+              <div class="comment-author">
+                <%if current_user.personalinformation.profilepicture.nil?%>
+                    <span class="avatar avatar-lg glyphicon air-icon-avatar "></span>
+                <%else%>
+                    <%= image_tag @current_user.personalinformation.profilepicture.avatar.url, :class=>"image img-responsive img-circle"%>
+                <%end%>
+                <cite class="fn"><h4 class="media-heading"><%= conversation_interlocutor(conversation).personalinformation.firstname %></h4></cite> <span class="says">says:</span>
+              </div>
+
+
+              <div class="media-body">
+                <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
+
+                <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.body, length: 45) %></p>
+              </div>
+
+              <%= link_to "Send Message", "#", class: "btn btn-success start-conversation",
+                          "data-sid" => current_user.id, "data-rip" => conversation.sender.id %>
+            </li>
+
+        <% end %>
+      </ul>
+  <% else %>
+      <p>You have no conversations. Click send message with any user to create one.</p>
+  <% end %>
+</div>
+
+</div>
+
+<br>
+
+<%= link_to 'New Conversation', new_conversation_path %>

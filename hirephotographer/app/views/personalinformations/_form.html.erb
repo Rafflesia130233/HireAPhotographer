@@ -1,0 +1,117 @@
+<div class="container full-width">
+  <article id="post-2869" class="page type-page status-publish">
+    <div class="submit-page">
+      <%= form_for(personalinformation) do |f| %>
+          <% if personalinformation.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(personalinformation.errors.count, "error") %> prohibited this personalinformation from
+                  being saved:</h2>
+
+                <ul>
+                  <% personalinformation.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <div class="air-card">
+            <h3> Personal Information</h3>
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :firstname, 'First Name', :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :firstname, :class => 'form-control bg-white form-control-has-validation', :required => true %>
+            </div>
+            <%= @personalinformation.errors[:firstname].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :middlename, 'Middle Name',  :class => 'form-label' %>
+            <%= f.text_field :middlename, :class => 'form-control bg-white' %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :lastname, 'Last Name',  :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :lastname, :class => 'form-control bg-white form-control-has-validation', :required => true %>
+            </div>
+            <%= @personalinformation.errors[:lastname].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :dateofbirth, 'Date of Birth', :class => 'form-label' %>
+            <div class="input-group date" id="dateofbirthpicker">
+              <%= text_field :dateofbirth, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+            <%= @personalinformation.errors[:dateofbirth].join(", ") %>
+
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :nationalid, 'National ID', :class => 'form-label' %>
+            <%= f.text_field :nationalid, :class => 'form-control bg-white' %>
+          </fieldset>
+        </div>
+
+          <div class="air-card">
+            <h3>Address</h3>
+          <fieldset class="form fieldset">
+
+            <%= f.label :address,  :class => 'form-label' %>
+            <%= f.text_field :address, :class => 'form-control bg-white form-control-has-validation', :required => true %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :city, :class => 'form-label' %>
+            <%= f.text_field :city, :class => 'form-control bg-white form-control-has-validation' , :required => true%>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :state, :class => 'form-label' %>
+            <%= f.text_field :state, :class => 'form-control bg-white' %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :country, :class => 'form-label' %>
+
+          </fieldset>
+        </div>
+
+
+          <div class="air-card">
+            <h3>Contact Information</h3>
+          <fieldset class="form fieldset">
+
+            <%= f.label :mobile,  :class => 'form-label' %>
+            <%= f.text_field :mobile, :class => 'form-control bg-white form-control-has-validation', :required => true %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+
+            <%= f.label :phone,  :class => 'form-label' %>
+            <%= f.text_field :phone, :class => 'form-control bg-white'%>
+          </fieldset>
+          <fieldset class="form fieldset">
+
+            <%= f.label :secondaryEmail, 'Secondary Email',  :class => 'form-label' %>
+            <%= f.text_field :secondaryEmail, :class => 'form-control bg-white'%>
+          </fieldset>
+        </div>
+          <div class="air-card">
+            <h3>Overview</h3>
+
+            <p>Write a brief professional overview
+            Highlight your top skills, experience, and interests. This is one of the first things clients will see on your profile. </p>
+            <%=f.text_area :summary, :class=> 'form-control vertical-resizable', :rows=> '13' %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+      <% end %>
+    </div>
+  </article>
+</div>

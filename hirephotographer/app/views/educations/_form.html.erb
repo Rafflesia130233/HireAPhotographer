@@ -1,0 +1,90 @@
+<div class="container full-width">
+  <article id="post-2869" class="sixteen columns post-2869 page type-page status-publish hentry">
+    <div class="submit-page">
+      <%= form_for(education) do |f| %>
+          <% if education.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(education.errors.count, "error") %> prohibited this education from being saved:</h2>
+
+                <ul>
+                  <% education.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+          <fieldset class="form fieldset">
+            <%= f.label :degree, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :degree, :class => 'form-control bg-white form-control-has-validation', :required => true %>
+            </div>
+            <%= @education.errors[:degree].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :startDate, 'Start Date', :class => 'form-label' %>
+            <div class="input-group date" id="startDate_ed">
+              <%= text_field :startDate, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+            <%= @education.errors[:startDate].join(", ") %>
+
+          </fieldset>
+
+
+          <fieldset class="form fieldset">
+            <%= f.label :endDate, 'End Date', :class => 'form-label' %>
+            <div class="input-group date" id="endDate_ed">
+              <%= text_field :endDate, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+
+          </fieldset>
+
+
+          <fieldset class="form fieldset">
+            <%= f.label :graduatedate, 'Graduate Date', :class => 'form-label' %>
+            <div class="input-group date" id="graduatedate_ed">
+              <%= text_field :graduatedate, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :school, :class => 'form-label' %>
+            <%= f.text_field :school, :class => 'form-control bg-white form-control-has-validation', :required => false %>
+
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :major, :class => 'form-label' %>
+            <%= text_field :major, nil, :class => 'form-control bg-white form-control-has-validation' %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :result, :class => 'form-label' %>
+
+            <%= f.text_field :result, :class => 'form-control bg-white form-control-has-validation', :required => false %>
+
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :remark, :class => 'form-label' %>
+            <%= f.text_field :remark, :class => 'form-control bg-white form-control-has-validation', :required => false %>
+          </fieldset>
+
+
+
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+      <% end %>
+    </div>
+  </article>
+</div>

@@ -1,0 +1,85 @@
+<header class="header" id="main-header" style="margin-bottom:0px; padding-bottom: 0px;height:60px" >
+  <div role="navigation" class="navbar navbar-default navbar-fixed-top topnav nav-color">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="index.html" class="navbar-brand"><img src="E:\SEP\RubyMine\hirephotographer\app\assets\images\logo.png" alt="logo" class="hidden-xs hidden-sm"><img src="E:\SEP\RubyMine\hirephotographer\app\assets\images\logo.png" alt="logo" class="visible-xs visible-sm"><span class="sr-only">Go to homepage</span></a>
+       <!-- <a href="http://light.workscout.in/" title="WorkScout" rel="home"><img src="http://light.workscout.in/wp-content/uploads/2016/08/logo2.png" data-rjs="http://light.workscout.in/wp-content/uploads/2016/08/logo2.png" alt="WorkScout"/></a>-->
+        <a href="index.html.erb" >
+          <img src="http://localhost:3000/assets/title1.png" height="550px"width="150px" alt="logo" class="hidden-xs hidden-sm" style="width:200px;height:50px;"><span class="sr-only">Go to homepage</span>
+	  </a>
+	<div class="navbar-buttons">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i>
+          </button>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav  navbar-right">
+          <li class=""><a href="http://localhost:3000"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+
+          <% if current_user && current_user.role == '0'%>
+              <li><%= active_link_to 'Profile', photographer_user_path(current_user.id),:class_active => 'enabled' %></li>
+              <li><%= active_link_to 'Find Job', job_details_url,:class_active => 'enabled' %></li>
+              <li><%= active_link_to 'Conversation', conversations_path,:class_active => 'enabled' %></li>
+              <li><%= active_link_to 'Applications', applications_path,:class_active => 'enabled' %></li>
+              <li><%= active_link_to 'Feedbacks', feedbacks_path,:class_active => 'enabled' %></li>
+          <% end %>
+
+          <% if current_user && current_user.role == '1' %>
+              <li><%= active_link_to 'Dashboard', customer_user_path(current_user.id) ,:class_active => 'enabled' %></li>
+              <li><%= active_link_to 'Profile', photographer_user_path(current_user.id) ,:class_active => 'enabled'%></li>
+              <li><%= active_link_to 'Post a Job', new_job_detail_path,:class_active => 'enabled' %></li>
+              <li><%= active_link_to 'Applications', applications_path,:class_active => 'enabled' %></li>
+              <li><%= active_link_to 'Find Photographre',search_photographer_path,:class_active => 'enabled' %></li>
+              <li><%= active_link_to 'Conversation', conversations_path,:class_active => 'enabled' %></li>
+              <li><%= active_link_to 'Hire details', hire_details_path,:class_active => 'enabled' %></li>
+          <% end %>
+          <% if logged_in? %>
+          <li><%= link_to "Log out", logout_path, method: :delete %> </li>
+          <% else %>
+              <li class="">
+                <a href="/signup" class="small-dialog popup-with-zoom-anim"><i class="fa fa-user"></i> Sign Up</a>
+              </li>
+              <li> <%=link_to 'Log in', "#", data: {toggle: "modal", target: "#login-dialog"}  %></li>
+
+        <% end %>
+        </ul>
+
+        <div id="login-dialog" role="dialog" class="modal fade apply-popup" aria-haspopup="true">
+          <div class="small-dialog zoom-anim-dialog">
+            <button type="button" class="mfp-close" data-dismiss="modal"></button>
+              <div class="small-dialog-headline">
+                <h1>Login</h1>
+              </div>
+              <div class="small-dialog-content woo-reg-box">
+                <%= form_for(:session, url: login_path, :html => {class: 'login'}) do |f| %>
+                    <p class="form-row form-row-wide">
+                      <%= f.label :username %>
+                      <%= f.text_field :username, class: 'input-text', :required => true %>
+                    </p>
+                    <p class="form-row form-row-wide">
+                      <%= f.label :password %>
+                      <%= f.password_field :password, class: 'input-text', :required => true %>
+                    </p>
+                    <p class="form-row">
+                      <%= f.submit "Log in", class: "btn btn-primary" %>
+                    </p>
+                    <p class="form-row">
+                      <%= f.label :rememberme, class: "inline" %>
+                      <%= f.check_box :rememberme %>
+                    </p>
+                    <p class="lost_password">
+                      <a href="/lost-password/">Lost your password?</a>
+                    </p>
+                <% end %>
+
+
+              </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</header>

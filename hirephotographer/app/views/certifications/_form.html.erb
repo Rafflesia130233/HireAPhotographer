@@ -1,0 +1,89 @@
+<div class="container full-width">
+  <article id="post-2869" class="sixteen columns post-2869 page type-page status-publish hentry">
+    <div class="submit-page">
+      <%= form_for(certification) do |f| %>
+          <% if certification.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(certification.errors.count, "error") %> prohibited this certification from being
+                  saved:</h2>
+
+                <ul>
+                  <% certification.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+
+
+          <fieldset class="form-group">
+            <%= f.label :name, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :name, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @certification.errors[:name].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :startDate, :class => 'form-label' %>
+            <div class="input-group date" id="cd1">
+              <%= text_field :startDate, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+          </fieldset>
+
+
+          <fieldset class="form fieldset">
+            <%= f.label :endDate, :class => 'form-label' %>
+            <div class="input-group date" id="cd2">
+
+              <%= text_field :endDate, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+          </fieldset>
+
+
+          <fieldset class="form fieldset">
+            <%= f.label :validTill, :class => 'form-label' %>
+            <div class="input-group date" id="cd3">
+
+              <%= text_field :validTill, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :organization, :class => 'form-label' %>
+            <%= f.text_field :organization, :class => 'form-control bg-white form-control-has-validation', :required => false %>
+
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :result, :class => 'form-label' %>
+
+            <%= f.text_field :result, :class => 'form-control bg-white form-control-has-validation', :required => false %>
+
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :remark, :class => 'form-label' %>
+            <%= f.text_field :remark, :class => 'form-control bg-white form-control-has-validation', :required => false %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label :description, :class => 'form-label' %>
+            <%= text_area :description, nil, :class => 'form-control bg-white form-control-has-validation' %>
+          </fieldset>
+
+
+          <div class="actions">
+            <%= f.submit :class => "btn btn-primary" %>
+            <%= button_tag t('buttons.cancel'), type: "submit", name: "cancel", value: true, :class => "btn btn-primary"  %>
+          </div>
+
+
+      <% end %>
+    </div>
+  </article>
+</div>

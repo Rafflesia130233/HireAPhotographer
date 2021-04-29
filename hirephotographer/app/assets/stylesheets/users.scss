@@ -1,0 +1,167 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.green-box{
+  position: relative;
+  display: block;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  margin-bottom: 15px;
+  background-color: #26ae61;
+  height:350px;
+}
+
+.enabled{
+  background-color: #26ae61;
+}
+
+.image {
+  height: 80px;
+  width: 80px;
+}
+.name_link {
+  color: #37a000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hp-tabs  {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+}
+
+.hp-tabs >li {
+  float: left;
+  height: 80px;
+  width: 200px;
+  box-shadow: #3b52ff;
+  background-color: #30275a;
+  padding: 10px;
+  margin: 0px 10px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.hp-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  color: #555555;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  cursor: default;
+  text-decoration: none;
+}
+.hp-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+.hp-tabs > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 10px;
+}
+
+
+/*==================    Buttons    ======================*/
+.btn-split {
+  display: inline-block;
+  line-height: 75px;
+  background: #3b3d3f;
+  text-align: center;
+  position: relative;
+  /*padding: 0 10px;*/
+  padding: 0 43px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.btn-split:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 50%;
+  top: 50%;
+  left: 0;
+  background: #AAC117;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.btn-split:after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 50%;
+  bottom: 50%;
+  right: 0;
+  background: #AAC117;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-top-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.btn-split span {
+  line-height: 37px;
+  font-size: 21px;
+  font-weight: 700;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  color: #fff;
+  z-index: 1;
+  text-transform: uppercase;
+}
+.btn-split:hover:after, .btn-split:hover:before {
+  height: 0;
+}
+.btn-split:active {
+  background: #222425;
+}
+.btn__mod1 {
+  width: 94%;
+  height: auto;
+  padding: 0 10px;
+}
+.btn__mod1 span:before {
+  font: 400 37px/37px 'Material-design';
+  padding-right: 15px;
+  vertical-align: middle;
+}
+@media (max-width: 479px) {
+  .btn__mod1 span {
+    font-size: 15px;
+    line-height: 25px;
+  }
+  .btn__mod1 span:before {
+    font: 400 25px/25px 'Material-design';
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .btn__mod2 {
+    padding: 0 25px;
+  }
+  .btn__mod2 span {
+    font-size: 16px;
+  }
+}

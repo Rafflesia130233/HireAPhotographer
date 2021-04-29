@@ -1,0 +1,20 @@
+<% trainings.each do |training| %>
+    <div class="service-box extra-btn col-lg-3 fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+      <div class="service-box_header">
+        <figure class="icon">
+          <i class="fa  fa-graduation-cap fa-3x" style="color:white; text-align:center; padding-top:20px;"> </i>
+        </figure>
+      </div>
+      <div class="service-box_body"><h3 class="sub-title"><%= training.name %></h3>
+        <h3 class="sub-title"><%= training.organization %></h3>
+        <div class="service-box_txt"> <%= training.description %>
+          <span> From <%= training.startDate %> to <%= training.endDate %></span>
+        </div>
+        <% if @current_user.id == training.profile.user %>
+            <div class="btn-align">
+              <%= link_to 'Edit', edit_training_path(training), class: "btn btn-inverse btn-normal btn-primary " %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+<% end %>

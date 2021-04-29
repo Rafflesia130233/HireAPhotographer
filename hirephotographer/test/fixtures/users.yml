@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString1
+  email: MyString1
+  password: MyString1
+  role: MyString1
+  status: false
+  confirm_token: MyString
+  role: 0
+
+

@@ -1,0 +1,64 @@
+<div id="titlebar" class="single submit-page profile-title">
+  <div class="container">
+
+    <div class="sixteen columns">
+      <h1><i class="fa fa-user" style="color:#37a000;"></i> Application Details</h1>
+    </div>
+
+  </div>
+</div>
+
+<% if current_user && current_user.role == '0'%>
+
+    <div class="container">
+
+
+      <div class="air-card" >
+
+        <p>Congratulations! You have successfully applied for the position.
+          <br/>
+          Thanks for your interest in the position! We like to think that we've created something special here at - and we're thrilled that you do, too.
+          <br/>
+          A quick note about what happens next:
+          <br/>
+          We carefully review every application - including yours. We're fortunate to have many outstanding people apply to each of our positions, and we're sure that you're no exception. While we appreciate every application that comes our way, due to the high volume we receive we're not able to follow up with everyone individually. If a strong match is found between your qualifications and the needs of the role, we'll contact you.
+          <br/>
+          Thanks again for your interest in Workday, and we wish you success in your job search!
+          <br/>
+
+        </p>
+      </div>
+
+    </div>
+
+
+<%end%>
+
+<% if current_user && current_user.role == '1'%>
+    <div class="container">
+
+
+      <div class="air-card" >
+        <h2>Change Status </h2>
+        <%= form_for(@application) do |f| %>
+
+            <%= f.label :status, :class => 'form-label' %>
+            <%= f.select :status, ['inprogress', 'rejected']%>
+            <div class="actions">
+              <%= link_to 'Edit', edit_application_path(@application), :class => "button" %>
+            </div>
+        <%end%>
+      </div>
+
+      <div class="air-card" >
+        <%= link_to 'Are you interested to Hire him?', new_hire_detail_path(application_id: @application.id,job_detail_id: @application.job_detail.id, photographer_user_id:@application.user.id, customer_user_id:@application.job_detail.user.id), :class => "button" %>
+
+      </div>
+      <div class="air-card" >
+        <h2>Give Feedback</h2>
+        <%= link_to 'Edit', new_feedback_path(givento:@application.user.id, givenby: current_user.id), :class => "button" %>
+      </div>
+      <%= link_to 'Back', applications_path, :class => "button" %>
+
+    </div>
+<%end%>

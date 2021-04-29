@@ -1,0 +1,16 @@
+<div id="titlebar" class="single submit-page">
+  <div class="container">
+
+    <div class="sixteen columns">
+      <h2><i class="fa fa-plus-circle"></i> New Training</h2>
+    </div>
+
+  </div>
+</div>
+
+<%= render 'form', training: @training %>
+<div class="container">
+  <div class="air-card" style="box-shadow: none;padding:10px 0px;">
+    <%= link_to 'Back', trainings_path, :class => "button" %>
+  </div>
+</div>

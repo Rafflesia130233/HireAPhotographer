@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Personalinformations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @personalinformations.each do |personalinformation| %>
+      <tr>
+        <td><%= link_to 'Show', personalinformation %></td>
+        <td><%= link_to 'Edit', edit_personalinformation_path(personalinformation) %></td>
+        <td><%= link_to 'Destroy', personalinformation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Personalinformation', new_personalinformation_path %>

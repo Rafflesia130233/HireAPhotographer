@@ -1,0 +1,209 @@
+#map {
+  height: 400px;
+  width: 100%;
+}
+.contact_block{
+  display: block;
+  min-height: 300px;
+}
+
+.about-us .item_img {
+  float: left;
+  margin-right: 30px;
+  background-image: image_url('about-1.jpg');
+}
+
+.contact-tabs  {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+}
+
+.contact-tabs >li {
+  float: left;
+  height: 120px;
+  width: 30%;
+  box-shadow: #21759b;
+  background-color: #2bbfbd;
+  padding: 10px;
+  margin: 20px 10px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.contact-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  color: #ffffff;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  cursor: default;
+  text-decoration: none;
+  text-align: center;
+}
+.contact-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+  text-align: center;
+}
+.contact-tabs > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 10px;
+  text-align: center;
+}
+#maintop {
+  background: #fbfbfb;
+  padding-top: 25px;
+}
+.item_content {
+/*  background-color: white;*/
+  padding:15px;
+
+}
+
+.item_content figure {
+border-radius: 30px;
+ /* margin: 0 0 26px 0;
+  border-radius: 100%;
+
+  text-align: center;
+
+  line-height: 104px;*/
+
+}
+.social-links {
+  margin: 0;
+  overflow: hidden;
+  list-style-type: none;
+}
+.social-links li {
+  float: left;
+  margin-right: 11px;
+}
+.social-links a {
+  display: block;
+  width: 43px;
+  height: 43px;
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 22px;
+  border-radius: 22px;
+  text-align: center;
+  background: #2bbfbd;
+  color: #fff;
+}
+.social-links a.fa {
+  font-size: 17px;
+  line-height: 43px;
+}
+.social-links a:hover {
+  background: #383838;
+}
+.item_img {
+  font-size: 0;
+  line-height: 0;
+  position: relative;
+}
+.item_img img {
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+.item_img a {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+.item_img a:before,
+.item_img a:after {
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.item_img a:before {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border-top: 0px solid rgba(255, 255, 255, 0.5);
+  border-left: 0px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0px solid transparent;
+  border-right: 0px solid transparent;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+.item_img a:after {
+  left: 0%;
+  top: 0%;
+  bottom: 0px;
+  right: 0px;
+  border-bottom: 0px solid rgba(255, 255, 255, 0.5);
+  border-right: 0px solid rgba(255, 255, 255, 0.5);
+  border-top: 0px solid transparent;
+  border-left: 0px solid transparent;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+.item_img a.touchGalleryLink:after {
+  display: none;
+}
+.item_img a img {
+  opacity: 0.99;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+.item_img a:hover img,
+.item_img a:hover .BWfade {
+  transform: scale(1) !important;
+  -o-transform: scale(1) !important;
+  -moz-transform: scale(1) !important;
+  -webkit-transform: scale(1) !important;
+  -ms-transform: scale(1) !important;
+  opacity: 1 !important;
+}
+.item_img a:hover:before {
+  opacity: 1;
+  border-width: 7px;
+  -webkit-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.15);
+}
+.item_img a:hover:after {
+  opacity: 1;
+  border-width: 7px;
+}
+.img-intro__left,
+.img-full__left {
+  float: left;
+  margin: 0 30px 44px 0;
+  max-width: 65%;
+}
+.img-intro__right,
+.img-full__right {
+  float: right;
+  margin: 0 0 44px 18px;
+  max-width: 65%;
+}

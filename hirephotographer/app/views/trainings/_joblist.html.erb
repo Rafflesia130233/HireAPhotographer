@@ -1,0 +1,33 @@
+
+
+
+      <table class="job-manager-jobs manage-table responsive-table stacktable large-only">
+        <thead>
+        <tr>
+          <th class="job_title"><i class="fa fa-file-text"></i> Title</th>
+          <th class="filled"><i class="fa fa-check-square-o"></i> Filled?</th>
+          <th class="date"><i class="fa fa-calendar"></i> Date Posted</th>
+          <th class="expires"><i class="fa fa-calendar"></i>Expires</th>
+          <th class="applications">Applications</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @job_details.each do |job_detail| %>
+            <tr>
+              <td><% job_detail.jobTitle%></td>
+              <td><% job_detail.isavailable? %></td>
+              <td><% job_detail.created_at %></td>
+              <td><% job_detail.validTill %></td>
+              <td><%= link_to 'Show', job_detail %></td>
+              <td><%= link_to 'Edit', edit_job_detail_path(job_detail) %></td>
+              <td><%= link_to 'Destroy', job_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <br>
+      <a href="http://workscout.in/post-a-job/" class="button">Add Job</a>

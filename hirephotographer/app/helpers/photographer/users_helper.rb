@@ -1,0 +1,2 @@
+module Photographer::UsersHelper
+end

@@ -1,0 +1,37 @@
+<div id="titlebar" class="single submit-page job-title">
+  <div class="container">
+
+    <div class="sixteen columns">
+      <h1><i class="fa fa-search fa-1x"></i> Hire Details</h1>
+    </div>
+
+  </div>
+</div>
+<div class="container full-width">
+
+  <article id="post-2869" class="sixteen columns post-2869 page type-page status-publish hentry">
+    <div class="submit-page air-card" style="margin-bottom: 25px;">
+
+  <% @hire_details.each do |hire_detail| %>
+      <section class="air-card-hover air-card-hover_tile">
+        <article class="row">
+          <div class="row">
+            <div class="col-md-9 pull-left">
+              <%= link_to hire_detail.job_detail.jobTitle, job_detail_path(hire_detail.job_detail.id) %></li>
+              <p>Applicant: <%= getPersonalinformation(hire_detail.photographer_user_id).personalinformation.firstname %> </p>
+              <p>Offered Salary: <%= hire_detail.salary %> </p>
+
+            </div>
+            <div class="col-md-3 pull-right">
+              <td><%= link_to 'Edit', edit_hire_detail_path(hire_detail), :class => "button"  %></td>
+              <td><%= link_to 'Destroy', hire_detail, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button"  %></td>
+
+            </div>
+          </div>
+        </article>
+      </section>
+  <% end %>
+
+    </div>
+  </article>
+    </div>

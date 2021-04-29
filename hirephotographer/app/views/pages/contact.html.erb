@@ -1,0 +1,128 @@
+<div id="titlebar" class="single submit-page contact-title">
+  <div class="container">
+
+    <div class="sixteen columns">
+      <h1><i class="fa fa-phone-square fa-1x" style="color:#37a000"></i>Contact</h1>
+    </div>
+
+  </div>
+</div>
+<div class="container">
+
+  <!-- Map -->
+  <div class="row">
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: 22.845641, lng: 89.54032789999997};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqFx2Rfkcfp6-zIbb0_hrBBW5yV-V1ZGM&callback=initMap" async defer>
+    </script>
+  </div>
+
+  <!-- Address -->
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;">
+      <div class="thumb-pad1 maxheight" style="height: 409px;">
+        <div class="box_inner">
+          <div class="thumbnail">
+            <figure><i class="fa fa-home  fa-3x"></i></figure>
+            <p class="caption">
+            <h3>Address:</h3>
+            <p>
+              Khulna<br>
+              Khulna city<br>
+              Illinois121164<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;">
+      <div class="thumb-pad1 maxheight" style="height: 409px;">
+        <div class="box_inner">
+          <div class="thumbnail">
+            <figure><i class="icons-marker fa fa-phone  fa-3x"></i></figure>
+            <div class="caption">
+              <h3>Phones:</h3>
+              <p>
+                +1 800 559 6580
+              </p>
+
+
+              <p>
+                <i class="icons-marker fa fa-print"></i> +1 504 889 9898 </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;">
+      <div class="thumb-pad1 maxheight" style="height: 409px;">
+        <div class="box_inner">
+          <div class="thumbnail">
+            <figure><i class="fa fa-mail-forward"></i></figure>
+            <div class="caption">
+              <h3>Email:</h3><i class="icons-marker fa fa-mail-forward  fa-2x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mail-->
+  <div class="row">
+    <div class="col-lg-12 air-card" style="border:none;">
+      <h3>Miscellaneous information:</h3>
+
+
+      <form>
+
+
+        <input name="name" type="text" class="form-control bg-white form-control-has-validation search-box" id="inputName_115" placeholder="Name" aria-required="true">
+
+        <!-- E-mail Field -->
+
+
+        <input name="email" type="email" class="form-control bg-white form-control-has-validation search-box" id="inputEmail_115" placeholder="Email" aria-required="true">
+
+
+        <!-- Phone Field -->
+
+        <input name="phone" type="text" class="form-control bg-white form-control-has-validation search-box" id="inputPhone_115" placeholder="Phone" aria-required="true">
+
+
+        <!-- Message Field -->
+
+        <textarea name="message" class="form-control bg-white form-control-has-validation search-box" id="inputMessage_115" placeholder="Message" aria-required="true"></textarea>
+
+
+        <!-- Submit Button -->
+
+        <button type="reset" name="button" id="clear_115" value="Clear" class="btn btn-primary">Clear</button>
+
+        <button type="submit" name="button" value="Send" class="btn btn-primary">Send</button>
+
+
+      </form>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+

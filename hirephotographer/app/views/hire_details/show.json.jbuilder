@@ -1,0 +1,1 @@
+json.partial! "hire_details/hire_detail", hire_detail: @hire_detail

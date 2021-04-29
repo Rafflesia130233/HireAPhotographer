@@ -1,0 +1,53 @@
+<div class="container full-width">
+  <article id="post-2869" class="sixteen columns post-2869 page type-page status-publish hentry">
+    <div class="submit-page air-card">
+      <%= form_for(application) do |f| %>
+          <% if application.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(application.errors.count, "error") %> prohibited this application from being
+                  saved:</h2>
+
+                <ul>
+                  <% application.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <fieldset class="form fieldset">
+            <%= f.label :coverletter, 'Cover Letter', :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_area :coverletter, :class => 'form-control bg-white form-control-has-validation search-box', :required => true, rows: 15 %>
+            </div>
+            <%= @application.errors[:coverletter].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset">
+            <%= f.label  :availablefrom, 'Available From', :class => 'form-label' %>
+            <div class="input-group date" id="ap_new">
+              <%= text_field :availablefrom, nil, class: 'search-box', data: {date_format: 'YY/MM/DD'} %>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+            <%= @application.errors[:availablefrom].join(", ") %>
+          </fieldset>
+
+
+          <fieldset class="form fieldset">
+            <%= f.label  :expectedsalary,'Expected Salary', :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :expectedsalary, :class => 'form-control search-box bg-white form-control-has-validation', :required => true, rows: 14 %>
+            </div>
+            <%= @application.errors[:expectedsalary].join(", ") %>
+          </fieldset>
+          <%= f.hidden_field :status, value: 'new' %>
+          <%= f.hidden_field :job_detail_id,:value => params[:job_detail_id] %>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+      <% end %>
+    </div>
+  </article>
+</div>

@@ -1,0 +1,87 @@
+<div class="container full-width">
+  <article id="post-2869" class="sixteen columns post-2869 page type-page status-publish hentry">
+    <div class="submit-page">
+      <%= form_for(training) do |f| %>
+          <% if training.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(training.errors.count, "error") %> prohibited this training from being saved:</h2>
+
+                <ul>
+                  <% training.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+
+
+              <fieldset class="form fieldset">
+                <%= f.label :name, :class => 'form-label' %>
+                <div class="field required-field">
+                  <%= f.text_field :name, :class => 'form-control bg-white form-control-has-validation', :required => true %>
+                </div>
+                <%= @training.errors[:name].join(", ") %>
+              </fieldset>
+
+              <fieldset class="form fieldset">
+                <%= f.label :startDate, 'Start Date', :class => 'form-label' %>
+                <div class="input-group date" id="d1">
+                  <%= text_field :startDate, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </fieldset>
+
+
+              <fieldset class="form fieldset">
+                <%= f.label :endDate, 'End Date', :class => 'form-label' %>
+                <div class="input-group date" id="d2">
+
+                  <%= text_field :endDate, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </fieldset>
+
+
+              <fieldset class="form fieldset">
+                <%= f.label :validTill, 'valid Till', :class => 'form-label' %>
+                <div class="input-group date" id="d3">
+
+                  <%= text_field :validTill, nil, class: 'form-control', data: {date_format: 'YYYY/MM/DD'} %>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </fieldset>
+
+              <fieldset class="form fieldset">
+                <%= f.label :organization, :class => 'form-label' %>
+                <%= f.text_field :organization, :class => 'form-control bg-white form-control-has-validation', :required => false %>
+
+              </fieldset>
+
+              <fieldset class="fform fieldset">
+                <%= f.label :result, :class => 'form-label' %>
+
+                <%= f.text_field :result, :class => 'form-control bg-white form-control-has-validation', :required => false %>
+
+              </fieldset>
+
+              <fieldset class="form fieldset">
+                <%= f.label :remark, :class => 'form-label' %>
+                <%= f.text_field :remark, :class => 'form-control bg-white form-control-has-validation', :required => false %>
+              </fieldset>
+
+              <fieldset class="form fieldset">
+                <%= f.label :description, :class => 'form-label' %>
+                <%= text_area :description, nil, :class => 'form-control bg-white form-control-has-validation' %>
+              </fieldset>
+
+
+              <div class="actions">
+                <%= f.submit :class => "btn btn-primary" %>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Cancel</button>
+              </div>
+
+      <% end %>
+    </div>
+  </article>
+</div>

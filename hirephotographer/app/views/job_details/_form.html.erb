@@ -1,0 +1,119 @@
+<div class="container home_content">
+  <article id="post-2869" class="sixteen columns post-2869 page type-page status-publish hentry">
+    <div class="submit-page">
+
+      <%= form_for(job_detail) do |f| %>
+          <% if job_detail.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(job_detail.errors.count, "error") %> prohibited this job_detail from being saved:</h2>
+
+                <ul>
+                  <% job_detail.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :jobTitle, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :jobTitle, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @job_detail.errors[:jobTitle].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :validTill, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.date_select :validTill, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @job_detail.errors[:validTill].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :status, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :status, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @job_detail.errors[:status].join(", ") %>
+          </fieldset>
+
+
+
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :salary, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :salary, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @job_detail.errors[:salary].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :jobRequirementId, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :jobRequirementId, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @job_detail.errors[:jobRequirementId].join(", ") %>
+          </fieldset>
+
+
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :location, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :location, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @job_detail.errors[:location].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :startDate, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.date_select :startDate, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @job_detail.errors[:startDate].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :endDate, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.date_select :endDate, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @job_detail.errors[:endDate].join(", ") %>
+          </fieldset>
+
+
+
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :hours_per_week, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :hours_per_week, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @job_detail.errors[:hours_per_week].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :min_rate, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :min_rate, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @job_detail.errors[:min_rate].join(", ") %>
+          </fieldset>
+
+          <fieldset class="form fieldset-job_title">
+            <%= f.label :max_rate, :class => 'form-label' %>
+            <div class="field required-field">
+              <%= f.text_field :max_rate, :class => 'form-control bg-white form-control-has-validation search-box', :required => true %>
+            </div>
+            <%= @job_detail.errors[:max_rate].join(", ") %>
+          </fieldset>
+
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+
+      <% end %>
+
+    </div>
+  </article>
+</div>

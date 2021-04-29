@@ -1,0 +1,9 @@
+<h1>Editing Education</h1>
+
+<%= render 'form', education: @education %>
+<div class="container">
+  <div class="air-card" style="box-shadow: none;padding:10px 0px;">
+    <%= link_to 'Show', @education, :class => "button" %>
+    <%= link_to 'Back', educations_path, :class => "button" %>
+  </div>
+</div>

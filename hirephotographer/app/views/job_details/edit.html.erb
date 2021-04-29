@@ -1,0 +1,9 @@
+<h1>Editing Job Detail</h1>
+
+<%= render 'form', job_detail: @job_detail %>
+<div class="container">
+  <div class="air-card" style="box-shadow: none;padding:10px 0px;">
+    <%= link_to 'Show', @job_detail, :class => "button" %>
+    <%= link_to 'Back', job_details_path, :class => "button" %>
+  </div>
+</div>

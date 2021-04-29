@@ -1,0 +1,24 @@
+
+<% certifications.each do |certification| %>
+
+        <div class="service-box extra-btn col-lg-3 fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+          <div class="service-box_header">
+            <figure class="icon">
+              <i class="fa  fa-graduation-cap fa-3x" style="color:white; text-align:center; padding-top:20px;"> </i>
+            </figure>
+           </div>
+          <div class="service-box_body"> <h3 class="sub-title"><%= certification.name %></h3><h3 class="sub-title"><%= certification.organization %></h3>
+            <div class="service-box_txt"> <%= certification.description %>
+              <span> From <%= certification.startDate %> to <%= certification.endDate %></span>
+            </div>
+            <%if @current_user.id == certification.profile.user %>
+            <div class="btn-align">
+              <%= link_to 'Edit', edit_certification_path(certification), class:"btn btn-inverse btn-normal btn-primary " %>
+            </div>
+                <% end %>
+          </div>
+        </div>
+
+
+
+<% end %>

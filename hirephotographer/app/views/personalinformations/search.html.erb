@@ -1,0 +1,25 @@
+<div class="container full-width">
+  <article id="post-2869" class="sixteen columns post-2869 page type-page status-publish hentry">
+    <div class="submit-page">
+      <h1>Find Photographer</h1>
+      <%= form_for_filterrific @filterrific, html: {id: 'filterrific-no-ajax-auto-submit'} do |f| %>
+
+          <fieldset class="form fieldset-seach-query">
+
+            <%= f.text_field :search_photographer, :class => 'search-box'%>
+          </fieldset>
+
+          <%= f.submit 'Filter' %>
+      <% end %>
+
+      <br>
+    <% if !@personalinformations.nil?%>
+      <%= render(
+              partial: 'personalinformations/list',
+              locals:  { personalinformations: @fpersonalinformations }
+          ) %>
+<%end%>
+
+    </div>
+  </article>
+</div>

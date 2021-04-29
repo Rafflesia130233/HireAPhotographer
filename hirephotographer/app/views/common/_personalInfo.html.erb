@@ -1,0 +1,67 @@
+<div class="container">
+
+  <div class="air-card ">
+    <div class="row">
+      <div class="pull-left up-cursor-pointer col-md-2">
+        <%if @personalinformation.profilepicture.nil?%>
+        <a data-toggle="modal" href="#upload-photo-dialog"><span class="avatar avatar-lg glyphicon air-icon-avatar "></span></a>
+
+
+       <%else%>
+            <%= image_tag @personalinformation.profilepicture.avatar.url, :class=>"image img-responsive img-circle"%>
+      <%end%>
+      </div>
+
+
+
+
+      <div id="upload-photo-dialog" role="dialog" class="modal fade apply-popup" aria-haspopup="true">
+        <div class="small-dialog zoom-anim-dialog">
+          <div class="small-dialog-headline">
+            <h3 class="modal-title">Edit Potrait</h3>
+          </div>
+          <div class="small-dialog-content woo-reg-box"><!-- ngIf: vm.error -->
+
+
+            <%= form_for(Profilepicture.new, html: { multipart: true}) do |f|  %>
+                <div class="fallback">
+                  <%= f.file_field :avatar%><br>
+                  <div class="actions">
+                    <%= f.submit %>
+                  </div>
+                </div>
+            <% end %>
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-10">
+        <h2> <%= @personalinformation.firstname %>  <%= @personalinformation.middlename %> <%= @personalinformation.lastname %></h2>
+        <span class="glyphicon glyphicon-md air-icon-location m-0-left-right"></span>
+        <p><%= @personalinformation.address %>  </p>
+        <p><%= @personalinformation.city %>
+          , <%= @personalinformation.state %>  <%= @personalinformation.country %> </p>
+        <p><i class="fa fa-mobile-phone"></i><%= @personalinformation.mobile %>  </p>
+        <p><%= @personalinformation.phone %>  </p>
+        <p><%= @personalinformation.secondaryEmail %>  </p>
+      </div>
+
+    </div>
+
+    <hr class="m-sm-top">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4> Overview </h4>
+        <p><%= @personalinformation.summary %>  </p>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+

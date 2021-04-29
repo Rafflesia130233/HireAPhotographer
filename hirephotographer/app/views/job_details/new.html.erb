@@ -1,0 +1,16 @@
+<div id="titlebar" class="single submit-page job-title">
+  <div class="container">
+
+    <div class="sixteen columns">
+      <h2><i class="fa fa-plus-circle"></i> Job Detail</h2>
+    </div>
+
+  </div>
+</div>
+
+<%= render 'form', job_detail: @job_detail %>
+<div class="container">
+  <div class="air-card" style="box-shadow: none;padding:10px 0px;">
+    <%= link_to 'Back', job_details_path, :class => "button" %>
+  </div>
+</div>

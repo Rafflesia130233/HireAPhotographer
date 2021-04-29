@@ -1,0 +1,10 @@
+<div class="container">
+
+  <h1>Editing Certification</h1>
+
+  <%= render 'form', certification: @certification %>
+  <div class="air-card" style="box-shadow: none;padding:10px 0px;">
+    <%= link_to 'Show', @certification, :class => "button" %> |
+    <%= link_to 'Back', certifications_path, :class => "button" %>
+  </div>
+</div>

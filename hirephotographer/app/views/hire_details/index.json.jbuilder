@@ -1,0 +1,1 @@
+json.array! @hire_details, partial: 'hire_details/hire_detail', as: :hire_detail

@@ -1,0 +1,180 @@
+<div id="titlebar" class="single submit-page application-title">
+  <div class="container">
+    <div class="sixteen columns">
+      <h1><i class="fa fa-briefcase" style="color:#1ABC9C;"> </i>  Applications</h1>
+    </div>
+
+  </div>
+</div>
+
+<% if current_user && current_user.role == '0'%>
+    <div class="container">
+
+      <% if @myAppllications.count > 0%>
+          <% @myAppllications.each do |app0| %>
+              <section class="air-card air-card-hover_tile">
+
+                  <div class="row">
+                    <div class="col-md-2 pull-left">
+                      <%if app0.user.personalinformation.profilepicture.nil?%>
+                          <a data-toggle="modal" href="#upload-photo-dialog"><span class="avatar avatar-lg glyphicon air-icon-avatar "></span></a>
+                      <%else%>
+                          <%= image_tag app0.user.personalinformation.profilepicture.avatar.url, :class=>"image img-responsive img-circle img-small"%>
+                      <%end%>
+                    </div>
+                    <div class="col-md-5 pull-left">
+                      <%= link_to app0.user.personalinformation.firstname,  photographer_user_url(app0.user.id), :class=>"name_link"%>
+                      <p><%= app0.user.personalinformation.phone %>  </p>
+                      <p><%= app0.user.personalinformation.secondaryEmail %>  </p>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                      <%= link_to 'Edit', edit_certification_path(app0), :class => "button"  %>
+                      <%= link_to 'Destroy', app0, method: :delete, data: {confirm: 'Are you sure?'}, :class => "button"  %>
+                      </div>
+                    <div class="col-md-3 pull-right">
+                      Submitted on
+                      <p><%= app0.created_at %> </p>
+
+                      <%= link_to "Send Message", "#", class: "btn btn-success start-conversation",
+                                  "data-sid" => current_user.id, "data-rip" => app0.job_detail.user.id %>
+                    </div>
+                  </div>
+
+              </section>
+          <% end %>
+      <% else %>
+          <section class="air-card-hover air-card-hover_tile">
+            <h3>No new application has been found!</h3>
+          </section>
+      <% end %>
+    </div>
+<%end%>
+<% if current_user && current_user.role == '1'%>
+<div class="container">
+
+<ul class="hp-tabs" role="tablist">
+  <li class="active"> <%=link_to 'Active', "#", data: {toggle: "tab", target: "#active-tab"}  %></li>
+  <li> <%=link_to 'In Progress', "#", data: {toggle: "tab", target: "#progress-tab"}  %></li>
+  <li> <%=link_to 'Rejected', "#", data: {toggle: "tab", target: "#recjected-tab"}  %></li>
+</ul>
+
+    <div id='content' class="tab-content">
+      <div class="tab-pane air-card" id="active-tab">
+        <% if @newAppllications.count > 0%>
+        <% @newAppllications.each do |app| %>
+            <section class="air-card-hover air-card-hover_tile">
+              <article class="row">
+                <div class="row">
+                  <div class="col-md-2 pull-left">
+                    <%if app.user.personalinformation.profilepicture.nil?%>
+                        <a data-toggle="modal" href="#upload-photo-dialog"><span class="avatar avatar-lg glyphicon air-icon-avatar "></span></a>
+                    <%else%>
+                        <%= image_tag app.user.personalinformation.profilepicture.avatar.url, :class=>"image img-responsive img-circle img-small"%>
+                    <%end%>
+                  </div>
+              <div class="col-md-3 pull-left">
+                <%= link_to app.user.personalinformation.firstname,  photographer_user_path(app.user.id), :class=>"name_link"%>
+                <p><%= app.user.personalinformation.phone %>  </p>
+                <p><%= app.user.personalinformation.secondaryEmail %>  </p>
+              </div>
+
+              <div class="col-md-3 pull-right">
+                Submitted on
+                <p><%= app.created_at %> </p>
+                <%= link_to "Send Message", "#", class: "btn btn-success start-conversation",
+                            "data-sid" => current_user.id, "data-rip" => app.user.id %>
+              </div>
+
+                  <div class="col-md-3 pull-left">
+                    <p>Expected Salary : <%= app.expectedsalary %>  </p>
+                    <p>Available from : <%= app.availablefrom %>  </p>
+
+                    <%= link_to 'Evaluate',  application_path(app.id), :class=>"name_link"%>
+
+                  </div>
+            </div>
+                </article>
+              </section>
+        <% end %>
+        <% else %>
+            <section class="air-card-hover air-card-hover_tile">
+              <h3>No new application has been found!</h3>
+            </section>
+        <% end %>
+      </div>
+      <div class="tab-pane" id="progress-tab">
+        <% if @inprogressAppllications.count > 0%>
+        <% @inprogressAppllications.each do |app2| %>
+                <section class="air-card-hover air-card-hover_tile">
+                  <article class="row">
+                    <div class="row">
+                      <div class="col-md-2 pull-left">
+                        <%if app2.user.personalinformation.profilepicture.nil?%>
+                            <a data-toggle="modal" href="#upload-photo-dialog"><span class="avatar avatar-lg glyphicon air-icon-avatar "></span></a>
+                        <%else%>
+                            <%= image_tag app2.user.personalinformation.profilepicture.avatar.url, :class=>"image img-responsive img-circle img-small"%>
+                        <%end%>
+                      </div>
+                      <div class="col-md-7 pull-left">
+                        <%= link_to app2.user.personalinformation.firstname,  photographer_user_url(app2.user.id), :class=>"name_link"%>
+                        <p><%= app2.user.personalinformation.phone %>  </p>
+                        <p><%= app2.user.personalinformation.secondaryEmail %>  </p>
+                      </div>
+                      <div class="col-md-3 pull-right">
+                        Submitted on
+                        <p><%= app2.created_at %> </p>
+                        <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                                    "data-sid" => current_user.id, "data-rip" => app2.user.id %>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+        <% end %>
+        <% else %>
+            <section class="air-card-hover air-card-hover_tile">
+              <h3>No Inprogress applications has been found!</h3>
+            </section>
+        <% end %>
+      </div>
+      <div class="tab-pane" id="recjected-tab">
+        <% if @rejectedAppllications.count > 0%>
+        <% @rejectedAppllications.each do |app3| %>
+                <section class="air-card-hover air-card-hover_tile">
+                  <article class="row">
+                    <div class="row">
+                      <div class="col-md-2 pull-left">
+                        <%if app3.user.personalinformation.profilepicture.nil?%>
+                            <a data-toggle="modal" href="#upload-photo-dialog"><span class="avatar avatar-lg glyphicon air-icon-avatar "></span></a>
+                        <%else%>
+                            <%= image_tag app3.user.personalinformation.profilepicture.avatar.url, :class=>"image img-responsive img-circle img-small"%>
+                        <%end%>
+                      </div>
+                      <div class="col-md-7 pull-left">
+                        <%= link_to app3.user.personalinformation.firstname,  photographer_user_url(app3.user.id), :class=>"name_link"%>
+                        <p><%= app3.user.personalinformation.phone %>  </p>
+                        <p><%= app3.user.personalinformation.secondaryEmail %>  </p>
+                      </div>
+                      <div class="col-md-3 pull-right">
+                        Submitted on
+                        <p><%= app3.created_at %> </p>
+                        <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                                    "data-sid" => current_user.id, "data-rip" => app3.user.id %>
+                      </div>
+                    </div>
+                  </article>
+                </section>
+        <% end %>
+        <% else %>
+            <section class="air-card-hover air-card-hover_tile">
+                <h3>No Rejected applications has been found!</h3>
+              </section>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<%end%>
+
+<br>
+
+
+

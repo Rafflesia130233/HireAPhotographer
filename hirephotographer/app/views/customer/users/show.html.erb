@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<div id="titlebar" class="single submit-page  dashboard-title">
+  <div class="container">
+
+    <div class="sixteen columns">
+      <h1><i class="fa fa-plus-circle"></i> DasBoard</h1>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="air-card">
+
+    <h3> Valid Job</h3>
+    <hr/>
+    <% @postedValidJobs.each do |validJob| %>
+        <section class="air-card-hover air-card-hover_tile">
+          <article class="row">
+            <div class="row">
+              <div class="col-md-9 pull-left">
+                <%= link_to validJob.jobTitle, job_detail_path(validJob.id) %></li>
+                <p>Location: <%= validJob.location %> </p>
+                <p>Valid Till: <%= validJob.validTill %> </p>
+                <p>Salary: <%= validJob.salary %> </p>
+              </div>
+              <div class="col-md-3 pull-right">
+                <%= link_to 'Edit', edit_job_detail_path(validJob.id),:class => "button" %></li>
+
+              </div>
+            </div>
+          </article>
+        </section>
+    <% end %>
+  </div>
+  <div class="air-card">
+    <h3> Invalid Job</h3>
+    <hr/>
+    <% @postedInValidJobs.each do |invalidJob| %>
+        <section class="air-card-hover air-card-hover_tile">
+          <article class="row">
+            <div class="row">
+              <div class="col-md-9 pull-left">
+                <%= link_to invalidJob.jobTitle, job_detail_path(invalidJob.id) %>
+                <p>Location: <%= invalidJob.location %> </p>
+                <p>Valid Till: <%= invalidJob.validTill %> </p>
+              </div>
+              <div class="col-md-3 pull-right">
+                <%= link_to 'Edit', edit_job_detail_path(invalidJob.id),:class => "button" %>
+
+              </div>
+            </div>
+          </article>
+        </section>
+    <% end %>
+  </div>
+
+  <%= link_to 'Back', customer_users_path, :class => "button" %>
+</div>
+
+
+
+

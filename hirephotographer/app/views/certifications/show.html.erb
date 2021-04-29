@@ -1,0 +1,7 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="air-card" style="box-shadow: none;padding:10px 0px;">
+    <%= link_to 'Edit', edit_certification_path(@certification), :class => "button" %> |
+    <%= link_to 'Back', photographer_user_path(current_user.id), :class => "button" %>
+  </div>
+</div>

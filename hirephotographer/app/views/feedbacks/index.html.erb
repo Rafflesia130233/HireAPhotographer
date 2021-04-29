@@ -1,0 +1,92 @@
+<div id="titlebar" class="single submit-page feedback-title">
+  <div class="container">
+    <div class="sixteen columns">
+      <h1><i class="fa fa-briefcase" style="color:#1ABC9C;"> </i>  Manage Feedbacks</h1>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <h2> Select Your Feedback to View </h2>
+  <ul class="hp-tabs" role="tablist">
+
+
+    <li> <%=link_to 'Given', "#", data: {toggle: "tab", target: "#given-tab"}  %></li>
+    <li> <%=link_to 'Recived', "#", data: {toggle: "tab", target: "#recieved-tab"}  %></li>
+
+  </ul>
+
+  <div id='content' class="tab-content">
+    <div class="tab-pane air-card" id="given-tab">
+      <% if @givenfeedbacks.count > 0%>
+          <ul class="layout-comment-list">
+          <% @givenfeedbacks.each do |feedback1| %>
+                <li class="comment">
+                  <div class="comment-author">
+                    <%if feedback1.photographer_user.personalinformation.profilepicture.nil?%>
+                        <span class="avatar avatar-lg glyphicon air-icon-avatar "></span>
+                    <%else%>
+                        <%= image_tag feedback1.photographer_user.personalinformation.profilepicture.avatar.url, :class=>"image img-responsive img-circle"%>
+                    <%end%>
+                    <cite class="fn"><h4 class="media-heading"><%= feedback1.customer_user.personalinformation.firstname %></h4></cite>
+                  </div>
+
+
+                  <div class="media-body">
+                    <p><%= feedback1.feedback.nil? ? "No messages" : feedback1.feedback %></p>
+                  </div>
+                  <td><%= link_to 'Edit', edit_feedback_path(feedback), class:"button" %></td>
+               <%= link_to 'Destroy', feedback, method: :delete, data: { confirm: 'Are you sure?' }, class:"button" %>
+                </li>
+
+          <% end %>
+            </ul>
+      <% else %>
+          <section class="air-card-hover air-card-hover_tile">
+            <h3>No feed has been given!</h3>
+          </section>
+      <% end %>
+    </div>
+    <div class="tab-pane" id="recieved-tab">
+      <% if @recievedfeedbacks.count > 0%>
+          <ul class="layout-comment-list">
+          <% @recievedfeedbacks.each do |feedback_r| %>
+                <li class="comment">
+                  <div class="comment-author">
+                    <%if getPersonalinformation(feedback_r.givenby).personalinformation.profilepicture.nil?%>
+                        <span class="avatar avatar-lg glyphicon air-icon-avatar "></span>
+                    <%else%>
+                        <%= image_tag getPersonalinformation(feedback_r.givenby).personalinformation.profilepicture.avatar.url, :class=>"image img-responsive img-circle"%>
+                    <%end%>
+                    <cite class="fn"><h4 class="media-heading"><%= getPersonalinformation(feedback_r.givenby).personalinformation.firstname %></h4></cite>
+                  </div>
+
+
+                  <div class="media-body">
+
+
+                    <p><%= feedback_r.feedback.nil? ? "No messages" : feedback_r.feedback %></p>
+                  </div>
+
+                  <%= link_to 'Destroy', feedback_r, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </li>
+          <% end %>
+            </ul>
+      <% else %>
+          <section class="air-card-hover air-card-hover_tile">
+            <h3>No feedback has been recieved!</h3>
+          </section>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+
+</div>
+<p id="notice"><%= notice %></p>
+
+
+

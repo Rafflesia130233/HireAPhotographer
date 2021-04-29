@@ -1,0 +1,10 @@
+<h1>Editing Experience</h1>
+
+<%= render 'form', experience: @experience %>
+
+<div class="container">
+  <div class="air-card" style="box-shadow: none;padding:10px 0px;">
+    <%= link_to 'Show', @experience, :class => "button" %>
+    <%= link_to 'Back', experiences_path, :class => "button" %>
+  </div>
+</div>

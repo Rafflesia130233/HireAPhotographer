@@ -1,0 +1,44 @@
+
+<div id="titlebar" class="single submit-page  job-title">
+  <div class="container">
+
+    <div class="sixteen columns">
+      <h1><i class="fa fa-search fa-1x"></i> Find Job</h1>
+    </div>
+
+  </div>
+</div>
+<div class="container full-width">
+  <article id="post-2869" class="sixteen columns post-2869 page type-page status-publish hentry">
+    <div class="submit-page air-card" style="margin-bottom: 25px;">
+
+        <%= form_for_filterrific @filterrific, html: {id: 'filterrific-no-ajax-auto-submit'} do |f| %>
+
+            <fieldset class="form fieldset-seach-query">
+              <%= f.label :search_query, :class => 'form-label' %>
+                <%= f.text_field :search_query, :class => 'form-control bg-white search-box'%>
+            </fieldset>
+          <fieldset class="form fieldset-is_available">
+            <%= f.label :is_available, :class => 'form-label' %>
+            <%= f.date_select :is_available, :class => 'form-control bg-white'%>
+          </fieldset>
+          <fieldset class="form fieldset-sorted_by">
+            <%= f.label :sorted_by, :class => 'form-label' %>
+            <%= f.select :sorted_by, @filterrific.select_options[:sorted_by], {}, prompt: 'Select One', :class => 'form-control'%>
+           </fieldset>
+            <%= f.submit 'Filter' %>
+        <% end %>
+
+      <br>
+
+      <%= render(
+              partial: 'job_details/searchjob',
+              locals:  { job_details: @job_details }
+          ) %>
+
+      <% if current_user && current_user.role == '1' %>
+      <%= link_to 'New Job Detail', new_job_detail_path %>
+      <% end %>
+    </div>
+  </article>
+</div>

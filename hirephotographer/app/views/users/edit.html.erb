@@ -1,0 +1,10 @@
+<h1>Editing User</h1>
+
+<%= render 'form', user: @user %>
+
+<div class="container">
+  <div class="air-card" style="box-shadow: none;padding:10px 0px;">
+    <%= link_to 'Show', @user, :class => "button" %>
+    <%= link_to 'Back', users_path, :class => "button" %>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hirephotographer</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="background-color: #E9EBEC">
+  <%= render 'home_page/header' unless @skip_header%>
+  <%= yield %>
+  <a href="#" class="scrollToTop"><i class="fa fa-chevron-circle-up fa-5x" aria-hidden="true" style="color:#1ABC9C"></i></a>
+  <%= render 'home_page/footer' unless @skip_footer%>
+
+
+  </body>
+</html>

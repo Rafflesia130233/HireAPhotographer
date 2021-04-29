@@ -1,0 +1,33 @@
+<div id="login-dialog" role="dialog" class="modal fade apply-popup" aria-haspopup="true">
+  <div class="small-dialog zoom-anim-dialog">
+    <div class="small-dialog-headline">
+      <div class="small-dialog-headline">
+        <h1>Login</h1>
+      </div>
+      <div class="small-dialog-content woo-reg-box">
+        <%= form_for(:session, url: login_path, :html => {class: 'login'}) do |f| %>
+            <p class="form-row form-row-wide">
+              <%= f.label :username, class: 'required' %>
+              <%= f.text_field :username, class: 'input-text', :required => true %>
+            </p>
+            <p class="form-row form-row-wide">
+              <%= f.label :password, class: 'required' %>
+              <%= f.password_field :password, class: 'input-text', :required => true %>
+            </p>
+            <p class="form-row">
+              <%= f.submit "Log in", class: "btn btn-primary" %>
+            </p>
+            <p class="form-row">
+              <%= f.label :rememberme, class: "inline" %>
+              <%= f.check_box :rememberme %>
+            </p>
+            <p class="lost_password">
+              <a href="/lost-password/">Lost your password?</a>
+            </p>
+        <% end %>
+
+
+      </div>
+    </div>
+  </div>
+</div>

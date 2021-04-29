@@ -1,0 +1,37 @@
+<h2>
+  <%= page_entries_info @personalinformations.to_a, :model => 'personalinformation' %>
+</h2>
+<div id="filterrific_results" class="air-card">
+
+
+
+
+  <% @personalinformations.each do |personalinformation| %>
+
+      <section class="air-card-hover air-card-hover_tile">
+        <article class="row">
+           <div class="row">
+             <div class="col-md-4 col-lg-4 pull-left">
+               <%if personalinformation.profilepicture.nil?%>
+                   <a data-toggle="modal" href="#upload-photo-dialog"><span class="avatar avatar-lg glyphicon air-icon-avatar "></span></a>
+               <%else%>
+                   <%= image_tag personalinformation.profilepicture.avatar.url, :class=>"image img-responsive img-circle img-small"%>
+               <%end%>
+             </div>
+             <div class="col-md-8 col-lg-8">
+
+               <%= link_to personalinformation.firstname,  photographer_user_url(personalinformation.user.id), :class=>"name_link"%>
+               <span class="glyphicon glyphicon-md air-icon-location m-0-left-right"></span>
+               <p><%= personalinformation.address %>  </p>
+               <p><%= personalinformation.city %>
+                 , <%= personalinformation.state %>  <%= personalinformation.country %> </p>
+               <p><i class="fa fa-mobile-phone"></i><%= personalinformation.mobile %>  </p>
+               <p><%= personalinformation.phone %>  </p>
+               <p><%= personalinformation.secondaryEmail %>  </p>
+             </div>
+           </div>
+        </article>
+      </section>
+  <% end %>
+
+</div>
